@@ -1,0 +1,19 @@
+{
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/",
+            "app\\Controllers\\": "app/Controllers/",
+            "app\\Controllers\\Auth\\": "app/Controllers/Auth/",
+            "app\\Models\\": "app/Models/",
+            "app\\Core\\": "app/Core/",
+            "app\\Core\\Database\\": "app/Core/Database/",
+            "app\\Http\\": "app/Http/"
+        }
+    }
+    
+    
+    
+}

@@ -1,0 +1,31 @@
+version: '3'
+services:
+  softexpert_db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 123123qwe#@#
+      POSTGRES_DB: softexpert_market
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
+
+  softexpert_php:
+    image: php:7.4.33
+    restart: always
+    ports:
+      - 8000:8000
+    volumes:
+      - ../:/var/www/html
+    working_dir: /var/www/html
+
+  softexpert_vue:
+    image: node:latest
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - ../resources:/app
+    working_dir: /app
