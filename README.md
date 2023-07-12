@@ -12,22 +12,13 @@ To run the SoftExpert System, you need to have Docker installed on your machine.
 
 git clone https://github.com/ldsh-dev/softexpert.git
 
-css
-Copy code
-
 2. Navigate to the project directory:
 
 cd softexpert
 
-sql
-Copy code
-
 3. Start the containers using Docker Compose:
 
 docker-compose up --build
-
-markdown
-Copy code
 
 This will build and start the necessary containers for the application, including the PostgreSQL database, PHP server, and Vue.js development server.
 
@@ -41,9 +32,6 @@ This will build and start the necessary containers for the application, includin
 To stop the application and shut down the containers, you can use the following command:
 
 docker-compose down
-
-vbnet
-Copy code
 
 ## Additional Notes
 
@@ -60,6 +48,6 @@ Copy code
 
 - Make sure to update the configuration files in the project (such as database connection settings) as per your requirements.
 
-That's it! You should now have the SoftExpert System up and running. If you encounter any issues or have any questions, feel free to contact us.
+That's it! You should now have the SoftExpert System up and running. If you encounter any issues or have any questions, feel free to contact me.
 
 Enjoy using the SoftExpert System!
