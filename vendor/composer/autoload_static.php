@@ -13,6 +13,10 @@ class ComposerStaticInit91165f35a8e7b4e8c432e3b0051f74e3
     );
 
     public static $prefixLengthsPsr4 = array (
+        't' => 
+        array (
+            'tests\\' => 6,
+        ),
         'a' => 
         array (
             'app\\Models\\' => 11,
@@ -44,6 +48,10 @@ class ComposerStaticInit91165f35a8e7b4e8c432e3b0051f74e3
     );
 
     public static $prefixDirsPsr4 = array (
+        'tests\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/tests',
+        ),
         'app\\Models\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app/Models',
@@ -159,11 +167,19 @@ class ComposerStaticInit91165f35a8e7b4e8c432e3b0051f74e3
         'app\\Controllers\\Auth\\UserController' => __DIR__ . '/../..' . '/app/Controllers/Auth/UserController.php',
         'app\\Controllers\\CategoryController' => __DIR__ . '/../..' . '/app/Controllers/CategoryController.php',
         'app\\Controllers\\ProductController' => __DIR__ . '/../..' . '/app/Controllers/ProductController.php',
+        'app\\Controllers\\SaleController' => __DIR__ . '/../..' . '/app/Controllers/SaleController.php',
         'app\\Core\\Config' => __DIR__ . '/../..' . '/app/Core/Config.php',
         'app\\Core\\Database\\Database' => __DIR__ . '/../..' . '/app/Core/Database/Database.php',
         'app\\Http\\Response' => __DIR__ . '/../..' . '/app/Http/Response.php',
         'app\\Http\\Router' => __DIR__ . '/../..' . '/app/Http/Router.php',
+        'app\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
+        'app\\Models\\ItemSale' => __DIR__ . '/../..' . '/app/Models/ItemSale.php',
+        'app\\Models\\Product' => __DIR__ . '/../..' . '/app/Models/Product.php',
+        'app\\Models\\Sale' => __DIR__ . '/../..' . '/app/Models/Sale.php',
         'app\\Services\\CategoryService' => __DIR__ . '/../..' . '/app/Services/CategoryService.php',
+        'app\\Services\\ItemSaleService' => __DIR__ . '/../..' . '/app/Services/ItemSaleService.php',
+        'app\\Services\\ProductService' => __DIR__ . '/../..' . '/app/Services/ProductService.php',
+        'app\\Services\\SaleService' => __DIR__ . '/../..' . '/app/Services/SaleService.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

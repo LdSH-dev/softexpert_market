@@ -3,19 +3,39 @@
 namespace app\Models;
 
 use app\Core\Database\Database;
+use app\Services\CategoryService;
 
 class Category
 {
 
-    private $uuid;
-    private $name;
-    private $status;
+    public $uuid;
+    public $name;
+    public $status;
+    public $fee;
     private $database;
+    private $categoryService;
 
     public function __construct($uuid = null)
-    {
-        $this->database = new Database();
-        $this->uuid     = $uuid;
+    {   
+        $this->categoryService = new CategoryService();
+        $this->database        = new Database();
+
+        if (!empty($uuid)) 
+        {
+            $this->uuid = $uuid;
+            $this->loadDataFromDatabase();
+        }
+    }
+
+    private function loadDataFromDatabase()
+    {   
+        $data            = $this->categoryService->getCategoryById($this->uuid);
+
+        if ($data) {
+            $this->name   = $data['name'];
+            $this->status = $data['status'];
+            $this->fee    = $data['fee'];
+        }
     }
 
     public function save()
@@ -23,22 +43,19 @@ class Category
 
         if (empty($this->uuid))
         {
-            $this->database->connect();
-
-            $sql = "INSERT INTO category (uuid, name, status) VALUES (uuid_generate_v4(), ?, ?)";
-            $parameters = [$this->name, $this->status];
-            $success = $this->database->executeQuery($sql, $parameters);
-            $this->database->disconnect();
-    
-            if ($success['status'])
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }0
+            $this->categoryService->insert($this->name, $this->status, $this->fee);
         }
+        else 
+        {
+            $this->categoryService->update($this->uuid, $this->name, $this->status, $this->fee);
+        }
+       
+    }
+
+    public function delete()
+    {   
+
+        $this->categoryService->delete($this->uuid);
        
     }
     

@@ -44,12 +44,19 @@ class Database
         return ['status' => true, 'data' => "Disconnected from the database."];
     }
 
-    public function executeQuery($sql, $parameters = [])
+    public function executeQuery($sql, $parameters = [], $return_id = false)
     {
         try {
             $statement = $this->connection->prepare($sql);
             $statement->execute($parameters);
-            return ['status' => true , 'data' => $statement->fetchAll(PDO::FETCH_ASSOC)];
+            if ($return_id)
+            {
+                return ['status' => true , 'data' => $statement->fetchAll(PDO::FETCH_ASSOC)];
+            }
+            else
+            {
+                return ['status' => true , 'data' => $statement->fetchAll(PDO::FETCH_ASSOC)];
+            }
         } catch (PDOException $e) {
             return ['status' => false, 'data' => "Query execution failed: " . $e->getMessage()];
         }

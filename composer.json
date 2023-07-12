@@ -10,10 +10,11 @@
             "app\\Models\\": "app/Models/",
             "app\\Core\\": "app/Core/",
             "app\\Core\\Database\\": "app/Core/Database/",
-            "app\\Http\\": "app/Http/"
+            "app\\Http\\": "app/Http/",
+            "tests\\": "tests/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
     }
-    
-    
-    
 }
