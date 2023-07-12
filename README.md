@@ -1,53 +1,65 @@
-Project Setup
-Running PHP Server
-To run the PHP server, follow these steps:
+# SoftExpert System
 
-Open a terminal and navigate to the root directory of your project.
-Execute the following command to start the PHP server:
-bash
+This is the README file for the SoftExpert System project. The project consists of a web application built with PHP and Vue.js, using Docker for containerization.
+
+## Requirements
+
+To run the SoftExpert System, you need to have Docker installed on your machine. You can download and install Docker from the official website: [https://www.docker.com/](https://www.docker.com/)
+
+## Getting Started
+
+1. Clone the repository to your local machine:
+
+git clone https://github.com/ldsh-dev/softexpert.git
+
+css
 Copy code
-php -S 127.0.0.1:8000
-The PHP server will start running at http://127.0.0.1:8000/.
 
-Starting Vue Deployment
-To start the Vue deployment, navigate to the resources/ directory of your project.
+2. Navigate to the project directory:
 
-Open a new terminal window/tab.
-Change directory to the resources/ folder:
-bash
+cd softexpert
+
+sql
 Copy code
-cd resources/
-Install the dependencies using npm:
-bash
+
+3. Start the containers using Docker Compose:
+
+docker-compose up --build
+
+markdown
 Copy code
-npm install
-Once the dependencies are installed, start the Vue development server:
-bash
+
+This will build and start the necessary containers for the application, including the PostgreSQL database, PHP server, and Vue.js development server.
+
+4. Once the containers are up and running, you can access the SoftExpert System in your browser:
+
+- Web Application: [http://localhost:8000](http://localhost:8000)
+- Vue.js Development Server: [http://localhost:8080](http://localhost:8080)
+
+## Stopping the Application
+
+To stop the application and shut down the containers, you can use the following command:
+
+docker-compose down
+
+vbnet
 Copy code
-npm run serve
-The Vue application will be deployed and accessible at http://localhost:8080/.
 
-Starting the Docker Database
-To start the Docker container for the database, follow these steps:
+## Additional Notes
 
-Navigate to the docker/ directory of your project.
-Start the Docker container by running the following command:
-bash
-Copy code
-docker-compose up -d
-The Docker container will start running, and the database will be accessible according to the configuration specified in the docker-compose.yml file.
+- The PHP server is running on port 8000, and the Vue.js development server is running on port 8080. Make sure these ports are not in use by other applications on your machine.
 
-Make sure you have Docker installed and running on your system before starting the container.
+- The PostgreSQL database is running on port 5432. You can connect to the database using any PostgreSQL client with the following connection details:
+  - Host: localhost
+  - Port: 5432
+  - User: admin
+  - Password: 123123qwe#@#
+  - Database: softexpert_market
 
-Additional Notes
-Ensure that all the required dependencies and tools (PHP, Vue CLI, Docker) are properly installed on your system before running the commands mentioned above.
-Customize the database configuration in the docker-compose.yml file as per your requirements.
-You may need to install additional PHP extensions or configure PHP settings based on the specific needs of your project.
-Make sure to run any necessary database migrations or setup scripts to initialize the database schema and tables.
-Update any relevant environment variables or configuration files to ensure proper connectivity between the PHP application, Vue frontend, and the database.
-Remember to provide clear instructions and prerequisites for others to follow when setting up and running your project.
+- The project files are mounted into the respective containers, allowing you to make changes to the code and see the updates reflected in real-time.
 
+- Make sure to update the configuration files in the project (such as database connection settings) as per your requirements.
 
+That's it! You should now have the SoftExpert System up and running. If you encounter any issues or have any questions, feel free to contact us.
 
-
-
+Enjoy using the SoftExpert System!

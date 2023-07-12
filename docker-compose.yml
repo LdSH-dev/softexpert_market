@@ -10,22 +10,38 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./data:/var/lib/postgresql/data
+      - ./docker/data:/var/lib/postgresql/data
+    networks:
+      - softexpert_network
 
   softexpert_php:
-    image: php:7.4.33
+    build:
+      context: .
+      dockerfile: Dockerfile.php
+      args: 
+        - POSTGRES_DEV_PACKAGE=libpq-dev
     restart: always
     ports:
       - 8000:8000
     volumes:
-      - ../:/var/www/html
+      - ./:/var/www/html
     working_dir: /var/www/html
+    networks:
+      - softexpert_network
 
   softexpert_vue:
-    image: node:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.vue
     restart: always
     ports:
       - 8080:8080
     volumes:
-      - ../resources:/app
+      - ./resources:/app
     working_dir: /app
+    networks:
+      - softexpert_network
+
+networks:
+  softexpert_network:
+    driver: bridge

@@ -19,6 +19,7 @@ $router->post('/product/create', [ProductController::class, 'create']);
 $router->post('/product/update', [ProductController::class, 'update']);
 $router->post('/product/delete', [ProductController::class, 'delete']);
 
+$router->get('/sale', [SaleController::class, 'get']);
 $router->post('/sale/create', [SaleController::class, 'create']);
 
 # END ROUTES SECTION #
