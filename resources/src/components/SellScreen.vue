@@ -115,14 +115,14 @@ export default {
     calculateSubtotal() {
       let subtotal = 0;
       this.products.forEach((product) => {
-        subtotal += product.price * product.quantity;
+        subtotal += product.price * product.quantity_selected;
       });
       return subtotal.toFixed(2);
     },
     calculateTotalTax() {
       let totalTax = 0;
       this.products.forEach((product) => {
-        totalTax += this.calculateTax(product.price, product.category.fee) * product.quantity;
+        totalTax += this.calculateTax(product.price, product.category.fee) * product.quantity_selected;
         console.log(totalTax);
       });
       return totalTax.toFixed(2);
